@@ -9,7 +9,7 @@ const Detail = () => {
   const uiCtx = useContext(UiContext);
   const { id } = useParams();
   const [patient, setPatient] = useState(null);
-  const url = `http://localhost:4000/api/biomed/user/${id}`;
+  const url = `https://bmd-s4zi.onrender.com/api/biomed/user/${id}`;
   const user = JSON.parse(localStorage.getItem("user"));
   const token = user.accessToken;
 

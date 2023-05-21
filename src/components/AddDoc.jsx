@@ -3,7 +3,7 @@ import blood from "../assets/images/blood.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 const AddDoc = () => {
-  const url = "http://localhost:4000/api/biomed/addUser";
+  const url = "https://bmd-s4zi.onrender.com/api/biomed/addUser";
   const user = JSON.parse(localStorage.getItem("user"));
   const token = user.accessToken;
   const navigate = useNavigate()

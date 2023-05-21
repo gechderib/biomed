@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [users, setUsers] = useState([]);
-  const url = "http://localhost:4000/api/biomed/users";
+  const url = "https://bmd-s4zi.onrender.com/api/biomed/users";
   const user = JSON.parse(localStorage.getItem("user"));
   const token = user.accessToken;
   const navigate = useNavigate()

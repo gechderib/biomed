@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AddPatient = () => {
-  const url = "http://localhost:4000/api/biomed/addPatient";
+  const url = "https://bmd-s4zi.onrender.com/api/biomed/addPatient";
   const user = JSON.parse(localStorage.getItem("user"));
   const token = user.accessToken;
   const navigate = useNavigate()

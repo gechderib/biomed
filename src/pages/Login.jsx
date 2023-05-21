@@ -6,7 +6,7 @@ const Login = () => {
   const navigate = useNavigate()
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const url = "http://localhost:4000/api/biomed/signin";
+  const url = "https://bmd-s4zi.onrender.com/api/biomed/signin";
   const loginInfo = {
     username:userName,
     password:password,

@@ -6,7 +6,7 @@ import axios from "axios";
 
 const MyPatient = () => {
   const [users, setUsers] = useState(null);
-  const url = "http://localhost:4000/api/biomed/myPatient";
+  const url = "https://bmd-s4zi.onrender.com/api/biomed/myPatient";
   const user = JSON.parse(localStorage.getItem("user"));
   const token = user.accessToken;
   const navigate = useNavigate()
