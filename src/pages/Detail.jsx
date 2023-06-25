@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import PatientCard from "../components/PatientCard";
 import { UiContext } from "../store/uiCtx";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 const Detail = () => {
@@ -12,7 +12,7 @@ const Detail = () => {
   const url = `https://bmd-s4zi.onrender.com/api/biomed/user/${id}`;
   const user = JSON.parse(localStorage.getItem("user"));
   const token = user.accessToken;
-  
+  const navigate = useNavigate()
   useEffect(() => {
     const getPatient = async () => {
       const patient = await axios.get(url, {
@@ -28,11 +28,16 @@ const Detail = () => {
     getPatient();
   }, [token, url]);
 
-  console.log(patient);
+  
   return (
     <Layout>
       <div className="p-5">
         <div className="">
+          <div className="flex justify-end py-3 px-5" onClick={()=>{navigate(`/edit/${id}`)
+         localStorage.setItem( "patient", JSON.stringify(patient))
+        }}><span className="material-symbols-outlined text-red-400 cursor-pointer">
+        edit
+        </span></div>
           {patient == null ? (
             <p>Loading..</p>
           ) : (

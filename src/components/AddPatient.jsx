@@ -7,7 +7,7 @@ const AddPatient = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const token = user.accessToken;
   const navigate = useNavigate();
-  console.log(token);
+
   const [fullName, setFullName] = useState("");
   const [address, setAddress] = useState("");
   const [gender, setGender] = useState("");

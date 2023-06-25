@@ -7,6 +7,7 @@ import MyPatient from "./pages/MyPatient";
 import Detail from "./pages/Detail";
 import HowTo from "./pages/HowTo";
 import About from "./pages/About";
+import EditPatient from "./pages/EditPatient";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/detail/:id" element={<Detail/>}/>
       <Route path="/howto" element={<HowTo/>} />
       <Route path="/about" element ={<About/>} />
+      <Route path="/edit/:id" element={<EditPatient/>} />
 
     </Routes>
   );

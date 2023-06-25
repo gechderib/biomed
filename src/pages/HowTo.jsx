@@ -39,10 +39,7 @@ const HowTo = () => {
           </p>
 
           <p className="mb-4 text-justify">
-            <span className="font-bold">Alarms: </span>Input the desired IV fluid
-            type, its threshold fluid level and flow rate range monitor the
-            displayed fluid level and flow rate and take action if abnormalities
-            or concerns are detected
+            <span className="font-bold">Alarms: </span> Audible buzzer for lower fluid level from threshold and abnormal flow rates 
           </p>
 
           <p className="mb-4 text-justify">

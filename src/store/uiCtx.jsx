@@ -4,6 +4,7 @@ export const UiContext = createContext({})
 
 
 const UiContextProvider = ({children}) => {
+    const [currentPatient, setCurrentPatient] = useState()
     var [showProfile, setShowProfile] = useState(false)
     var [isAddingDoc, setIsAddingDoc] = useState(false)
     var [action, setAction] = useState("start")
@@ -28,7 +29,8 @@ const UiContextProvider = ({children}) => {
         isAddingDoc,
         setIsAddingDoc,
         action, setAction,
-        onStart, onReset, onStop
+        onStart, onReset, onStop,
+        currentPatient, setCurrentPatient
     }
 
     
