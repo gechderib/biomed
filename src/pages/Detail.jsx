@@ -27,6 +27,7 @@ const Detail = () => {
     };
     getPatient();
   }, [token, url]);
+
   console.log(patient);
   return (
     <Layout>
@@ -50,18 +51,18 @@ const Detail = () => {
             />
           )}
         </div>
-        <div className="flex justify-between gap-5 mt-4">
+        {patient == null?<p>Loading...</p>:<div className="flex justify-between gap-5 mt-4">
           <div className="p-5 border-4 border-green-300 rounded-2xl w-full text-gray-700 bg-gray-100">
             <p className="">Amount of Fluid Left</p>
-            {/* <p>{patient.volume} ml</p> */}
+            <p>{`${patient.volume}`} ml</p>
           </div>
           <div className="p-5 border-4 border-blue-300 rounded-2xl w-full text-gray-600 bg-gray-100">
             <p>Flow Rate</p>
-            {/* <p>{patient.sensorData} ml/s</p> */}
+            <p>{`${patient.sensorData}`} ml/s</p>
           </div>
-          <div className="p-5 border-4 border-red-600 rounded-2xl w-full cursor-pointer text-gray-600 bg-gray-100">
-            <p>Emmergency Button</p>
-            <p>Please check your patient </p>
+          <div className={`p-5 border-4 text-white rounded-2xl w-full cursor-pointer  ${patient.status?"bg-red-800 border-red-600":"bg-green-600"}`}>
+            
+            <p>IV Fluid Status</p>
           </div>
           <div className="p-5 border-4 w-full cursor-pointer flex gap-2 items-center text-gray-600 bg-gray-100">
             <div
@@ -92,7 +93,8 @@ const Detail = () => {
               ) : null}
             </div>
           </div>
-        </div>
+        </div>}
+        
       </div>
     </Layout>
   );
