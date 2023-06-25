@@ -6,12 +6,15 @@ const AddPatient = () => {
   const url = "https://bmd-s4zi.onrender.com/api/biomed/addPatient";
   const user = JSON.parse(localStorage.getItem("user"));
   const token = user.accessToken;
-  const navigate = useNavigate()
-  console.log(token)
+  const navigate = useNavigate();
+  console.log(token);
   const [fullName, setFullName] = useState("");
   const [address, setAddress] = useState("");
   const [gender, setGender] = useState("");
-  const [frr, setFrr] = useState("");
+  const [minFrr, setMinFrr] = useState("");
+  const [maxFrr, setMaxFrr] = useState("");
+  const [density, setDensity] = useState("");
+  const [volumeThreshold, setVolumeThreshold] = useState();
   const [bedNum, setBedNum] = useState("");
   const [roomum, setroomNum] = useState("");
   const [age, setAge] = useState("");
@@ -22,11 +25,14 @@ const AddPatient = () => {
 
   const patientInfo = {
     fullName,
-    frr,
+    minFrr,
+    maxFrr,
+    density,
+    volumeThreshold,
     bedNum,
     roomum,
     age,
-    booldType:bloodType,
+    booldType: bloodType,
     emgPhoneNum,
     mobileNum,
     fluidType,
@@ -42,21 +48,24 @@ const AddPatient = () => {
           "x-access-token": `${token}`,
         },
       });
-      
+
       if (response.data) {
         console.log(response.data);
-        setAddress("")
-        setAge("")
-        setBedNum("")
-        setBloodType("")
-        setEmdPhonNum("")
-        setFludType("")
-        setFrr("")
-        setFullName("")
-        setGender("")
-        setMobileNum("")
-        setroomNum("")
-        navigate("/home")
+        setAddress("");
+        setAge("");
+        setBedNum("");
+        setBloodType("");
+        setEmdPhonNum("");
+        setFludType("");
+        setMinFrr("");
+        setMaxFrr("");
+        setDensity("");
+        setVolumeThreshold("");
+        setFullName("");
+        setGender("");
+        setMobileNum("");
+        setroomNum("");
+        navigate("/home");
       }
     } catch (err) {
       console.log(err);
@@ -71,7 +80,7 @@ const AddPatient = () => {
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
               htmlFor="grid-first-name"
             >
-              First Name
+              Full Name
             </label>
             <input
               className="appearance-none block w-full bg-gray-200 text-gray-700 border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
@@ -222,15 +231,31 @@ const AddPatient = () => {
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
               htmlFor="grid-last-name"
             >
-              Flow Rate Range
+              Minimun Flow Rate Range
             </label>
             <input
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-last-name"
               type="text"
               placeholder="Enter flow rate"
-              value={frr}
-              onChange={(e) => setFrr(e.target.value)}
+              value={minFrr}
+              onChange={(e) => setMinFrr(e.target.value)}
+            ></input>
+          </div>
+          <div className="w-full  px-3">
+            <label
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              htmlFor="grid-last-name"
+            >
+              Maximun Flow Rate Range
+            </label>
+            <input
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              id="grid-last-name"
+              type="text"
+              placeholder="Enter flow rate"
+              value={maxFrr}
+              onChange={(e) => setMaxFrr(e.target.value)}
             ></input>
           </div>
           <div className="w-full  px-3">
@@ -249,7 +274,57 @@ const AddPatient = () => {
               onChange={(e) => setFludType(e.target.value)}
             ></input>
           </div>
+        </div>
+        <div className="md:flex mt-5">
+          <div className="w-full  px-3">
+            <label
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              htmlFor="grid-last-name"
+            >
+             Density
+            </label>
+            <input
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              id="grid-last-name"
+              type="text"
+              placeholder="Enter flow rate"
+              value={density}
+              onChange={(e) => setDensity(e.target.value)}
+            ></input>
+          </div>
+          <div className="w-full  px-3">
+            <label
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              htmlFor="grid-last-name"
+            >
+              Volume Threshold
+            </label>
+            <input
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              id="grid-last-name"
+              type="text"
+              placeholder="Enter flow rate"
+              value={volumeThreshold}
+              onChange={(e) => setVolumeThreshold(e.target.value)}
+            ></input>
+          </div>
           <div className="w-full"></div>
+          {/* <div className="w-full  px-3">
+            <label
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              htmlFor="grid-last-name"
+            >
+              Fluid Type
+            </label>
+            <input
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              id="grid-last-name"
+              type="text"
+              placeholder="Enter Fluid Type"
+              value={fluidType}
+              onChange={(e) => setFludType(e.target.value)}
+            ></input>
+          </div> */}
         </div>
       </div>
       <div

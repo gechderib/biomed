@@ -12,7 +12,7 @@ const Detail = () => {
   const url = `https://bmd-s4zi.onrender.com/api/biomed/user/${id}`;
   const user = JSON.parse(localStorage.getItem("user"));
   const token = user.accessToken;
-
+  
   useEffect(() => {
     const getPatient = async () => {
       const patient = await axios.get(url, {
@@ -53,11 +53,11 @@ const Detail = () => {
         <div className="flex justify-between gap-5 mt-4">
           <div className="p-5 border-4 border-green-300 rounded-2xl w-full text-gray-700 bg-gray-100">
             <p className="">Amount of Fluid Left</p>
-            <p>149 Mil</p>
+            {/* <p>{patient.volume} ml</p> */}
           </div>
           <div className="p-5 border-4 border-blue-300 rounded-2xl w-full text-gray-600 bg-gray-100">
             <p>Flow Rate</p>
-            <p>149 Mil/sec</p>
+            {/* <p>{patient.sensorData} ml/s</p> */}
           </div>
           <div className="p-5 border-4 border-red-600 rounded-2xl w-full cursor-pointer text-gray-600 bg-gray-100">
             <p>Emmergency Button</p>
