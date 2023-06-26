@@ -1,6 +1,6 @@
 
 
-const PatientCard = ({onDetail, fullName,EmgPhonNo,doctor,date,fluidType,frr,bedNum, roomNum,age, bloodType}) => {
+const PatientCard = ({onDetail, fullName,EmgPhonNo,doctor,date,fluidType,minFrr,maxFrr,bedNum, roomNum,age, bloodType}) => {
  
   return (
     <div onClick={onDetail} className="cursor-pointer">
@@ -10,7 +10,8 @@ const PatientCard = ({onDetail, fullName,EmgPhonNo,doctor,date,fluidType,frr,bed
         <div className="flex gpa font-semibold gap-10 text-gray-800 mb-2"><span className="w-1/4">Doctor</span> <span className="bg-white w-3/5 p-1">{doctor}</span></div>
         <div className="flex gpa font-semibold gap-10 text-gray-800 mb-2"><span className="w-1/4">A Date</span> <span className="bg-white w-3/5 p-1">{date}</span></div>
         <div className="flex gpa font-semibold gap-10 text-gray-800 mb-2"><span className="w-1/4">Fluid Type</span> <span className="bg-white w-3/5 p-1">{fluidType}</span></div>
-        <div className="flex gpa font-semibold gap-10 text-gray-800 mb-2"><span className="w-1/4">FRR</span> <span className="bg-white w-3/5 p-1">{frr}mil/sec</span></div>
+        <div className="flex gpa font-semibold gap-10 text-gray-800 mb-2"><span className="w-1/4">Minimun Flow Rate</span> <span className="bg-white w-3/5 p-1">{minFrr}mil/sec</span></div>
+        <div className="flex gpa font-semibold gap-10 text-gray-800 mb-2"><span className="w-1/4">Maximum Flow Rate</span> <span className="bg-white w-3/5 p-1">{maxFrr}mil/sec</span></div>
         <div className="flex gpa font-semibold gap-10 text-gray-800 mb-2"><span className="w-1/4">Bed Number</span> <span className="bg-white w-3/5 p-1">{bedNum}</span></div>
         <div className="flex gpa font-semibold gap-10 text-gray-800 mb-2"><span className="w-1/4">Room No</span> <span className="bg-white w-3/5 p-1">{roomNum}</span></div>
         <div className="flex gpa font-semibold gap-10 text-gray-800 mb-2"><span className="w-1/4">Age</span> <span className="bg-white w-3/5 p-1">{age}</span></div>

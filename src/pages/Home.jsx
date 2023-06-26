@@ -43,7 +43,8 @@ const Home = () => {
                 fullName={user.fullName}
                 EmgPhonNo={user.emgPhoneNum}
                 age={user.age}
-                frr={user.frr}
+                maxFrr={user.maxFrr}
+                minFrr={user.minFrr}
                 date={user.createdAt}
                 bedNum={user.bedNum}
                 bloodType={user.booldType}

@@ -46,7 +46,8 @@ const Detail = () => {
               fullName={patient.fullName}
               EmgPhonNo={patient.emgPhoneNum}
               age={patient.age}
-              frr={patient.frr}
+              minFrr={patient.minFrr}
+              maxFrr={patient.maxFrr}
               date={patient.createdAt}
               bedNum={patient.bedNum}
               bloodType={patient.booldType}
